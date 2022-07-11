@@ -36,6 +36,7 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react": "^7.30.1"
+    "eslint-plugin-react": "^7.30.1",
+    "random-words": "^1.2.0"
   }
 }

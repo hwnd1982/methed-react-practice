@@ -1,25 +1,14 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 export default class ComponentClass extends Component {
-  state = {
-    count: 0,
-  };
-
-  typeComponent = 'Class';
-
-  logged = () => {
-    this.setState({
-      count: this.state.count + 1,
-    });
-    console.log(this.state.count);
+  static propTypes = {
+    str: PropTypes.string,
   };
 
   render() {
-    return (
-      <div className='container'>
-        <p>{this.typeComponent} {this.state.count}</p>
-        <button onClick={this.logged}>Component</button>
-      </div>
-    );
+    console.log('--------------');
+    console.log('ComponentClass');
+    return <p>{this.props.str}</p>;
   }
 }
