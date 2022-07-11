@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import randomWords from 'random-words';
 import ComponentClass from './components/ComponentClass/ComponentClass';
 import PureComponentClass from './components/PureComponentClass/PureComponentClass';
-import ComponentFunc from './components/ComponentFunc/ComponentFunc';
+import ComponentFunc from './components/ComponentFunc';
 
 
 export default class App extends Component {
@@ -19,22 +19,19 @@ export default class App extends Component {
         case !(this.state.count % 3):
           this.setState({
             count: this.state.count + 1,
-            str: randomWords(),
-            pure: randomWords(),
-            func: randomWords(),
+            func: randomWords()
           });
           break;
         case !(this.state.count % 2):
           this.setState({
             count: this.state.count + 1,
-            str: randomWords(),
-            pure: randomWords()
+            str: randomWords()
           });
           break;
         default:
           this.setState({
             count: this.state.count + 1,
-            str: randomWords()
+            pure: randomWords()
           });
       }
     }, 3000);

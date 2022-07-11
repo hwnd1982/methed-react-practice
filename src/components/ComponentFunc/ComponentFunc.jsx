@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import style from './style.module.css';
 
-let ComponentFunc = (props) => {
+export let ComponentFunc = (props) => {
   console.log('--------------');
   console.log('ComponentFunc');
-  return <p>{props.func}</p>;
+  return <p className={style.text}>{props.func}</p>;
 };
 
 ComponentFunc.propTypes = {
@@ -12,5 +13,3 @@ ComponentFunc.propTypes = {
 };
 
 ComponentFunc = React.memo(ComponentFunc);
-
-export default ComponentFunc;
