@@ -49,6 +49,12 @@ export class LifeCycle extends React.Component {
     return state;
   }
 
+  componentDidMount() {
+    console.log('componentDidMount');
+    setInterval(this.handler, 3000);
+
+    document.addEventListener('scroll', this.handler);
+  }
 
   /**
   * !render
@@ -92,6 +98,13 @@ export class LifeCycle extends React.Component {
     };
   }
 
+  componentDidCatch(error, errorInfo) {
+    // sendLog(errorInfo.componentStack);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.handler);
+  }
 
   // --------------------------------
   handler = () => {
@@ -100,21 +113,10 @@ export class LifeCycle extends React.Component {
     }));
   };
 
-  componentDidMount() {
-    console.log('componentDidMount');
-    setInterval(this.handler, 3000);
-
-    document.addEventListener('scroll', this.handler);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('scroll', this.handler);
-  }
-
   render() {
     console.log('render');
     if (this.state.hasError) {
-      return (<h1>Что-то пошло не так...</h1>);
+      return <h1>Что-то пошло не так...</h1>;
     } else {
       return (
         <div>
